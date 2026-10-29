@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>مرکز آپلود و دانلود فایل</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="صفحه اصلی"><span class="brand-mark">↥</span><span>فایل‌دراپ</span></a>
+    <div class="top-actions">
+      <span id="connectionBadge" class="status">در حال بررسی اتصال…</span>
+      <a class="button button-quiet" href="/auth/google" id="connectBtn">اتصال Google Drive</a>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span> ذخیره‌سازی ابری ساده و سریع</div>
+      <h1>فایل‌هایت را <span>آپلود کن،</span><br>لینک مستقیم بگیر.</h1>
+      <p class="hero-copy">فایل‌ها در Google Drive ذخیره می‌شوند و لینک دانلود هر فایل در اختیار شما قرار می‌گیرد.</p>
+      <div class="hero-meta"><span>✓ لینک مستقیم</span><span>✓ فضای ابری گوگل</span><span>✓ سازگار با موبایل</span></div>
+    </section>
+
+    <section class="upload-card" aria-labelledby="uploadTitle">
+      <div class="section-heading">
+        <div><p class="eyebrow">ارسال فایل</p><h2 id="uploadTitle">آپلود فایل جدید</h2></div>
+        <span class="drive-icon">G</span>
+      </div>
+      <form id="uploadForm">
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <span class="upload-symbol">↑</span>
+          <strong id="fileLabel">فایل را اینجا رها کن یا انتخاب کن</strong>
+          <span class="muted">حداکثر حجم: <b id="maxSize">100</b> مگابایت</span>
+          <input id="fileInput" type="file" required>
+        </label>
+        <div class="admin-row">
+          <label for="adminPassword">رمز مدیریت برای آپلود</label>
+          <input id="adminPassword" type="password" autocomplete="current-password" placeholder="رمز تنظیم‌شده در فایل .env" required>
+        </div>
+        <div id="progressWrap" class="progress-wrap" hidden><div class="progress-track"><div id="progressBar"></div></div><div id="progressText">۰٪</div></div>
+        <button class="button button-primary full" type="submit" id="uploadBtn">آپلود به Google Drive <span>↗</span></button>
+        <p class="fineprint">برای جلوگیری از آپلود ناخواسته، ارسال فایل به رمز مدیریت نیاز دارد.</p>
+      </form>
+      <div id="notice" class="notice" role="status" hidden></div>
+    </section>
+
+    <section class="files-section">
+      <div class="files-heading">
+        <div><p class="eyebrow">کتابخانه عمومی</p><h2>فایل‌های قابل دانلود</h2></div>
+        <button id="refreshBtn" class="button button-quiet" type="button">↻ تازه‌سازی</button>
+      </div>
+      <div id="filesList" class="files-list"><div class="loading">در حال دریافت فهرست فایل‌ها…</div></div>
+      <p class="footnote">لینک‌های عمومی را فقط برای فایل‌هایی استفاده کن که انتشارشان مشکلی ندارد.</p>
+    </section>
+  </main>
+
+  <footer><span class="footer-mark">↥</span> فایل‌دراپ <span class="footer-separator">·</span> ذخیره‌سازی با Google Drive</footer>
+</body>
+</html>
